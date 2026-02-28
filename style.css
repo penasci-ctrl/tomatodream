@@ -1,0 +1,240 @@
+/* ==========================================================================
+   1. RESET E CONFIGURAÇÕES GLOBAIS
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-align: center;
+    /* Ponto vermelho de 8px */
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><circle cx="8" cy="8" r="4" fill="red"/></svg>') 8 8, auto;
+}
+
+/* Seleção em Vermelho */
+::selection {
+    background-color: #ff0000;
+    color: #ffffff;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    font-family: "Times New Roman", Times, serif;
+    background-color: #ffffff;
+    color: #000000;
+}
+
+/* ==========================================================================
+   2. NAVEGAÇÃO E CURSOR
+   ========================================================================== */
+.top-nav {
+    width: 100%;
+    padding: 60px 0 20px 0;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    position: relative;
+    z-index: 100; /* Garante que o menu fique acima do tomate na Home */
+}
+
+.top-nav a {
+    color: #000;
+    text-decoration: underline;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+/* Efeito ao passar o mouse em links: o ponto aumenta levemente */
+.top-nav a:hover, a:hover {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6" fill="red"/></svg>') 8 8, auto;
+    color: #ff0000;
+}
+
+/* ==========================================================================
+   3. HOME PAGE (ESTRUTURA E TOMATE)
+   ========================================================================== */
+.main-page {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.hero-container {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+}
+
+.logo {
+    font-size: clamp(4rem, 18vw, 12rem);
+    color: #ff0000;
+    text-transform: uppercase;
+    user-select: none;
+    line-height: 0.8;
+}
+
+.tomato-emoji {
+    font-size: 20rem;
+    position: absolute;
+    user-select: none;
+    z-index: 10;
+    transform: translate(-50%, -50%);
+    cursor: grab;
+}
+
+/* ==========================================================================
+   4. PÁGINAS DE CONTEÚDO GERAL (ABOUT E ARCHIVE)
+   ========================================================================== */
+.content-wrapper {
+    height: auto;
+    overflow: visible;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 25px;
+}
+
+h2 {
+    font-size: 2.5rem;
+    color: #ff0000;
+    text-transform: uppercase;
+    font-weight: normal;
+    margin-bottom: 30px;
+}
+
+p {
+    font-size: 1.2rem;
+    line-height: 1.4;
+    margin-bottom: 20px;
+}
+
+/* ==========================================================================
+   5. GALERIA DE FOTOS (ARCHIVE)
+   ========================================================================== */
+.photo-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin: 40px 0;
+}
+
+.photo-item {
+    background: #f4f4f4;
+    aspect-ratio: 3/2;
+    overflow: hidden;
+}
+
+.photo-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ==========================================================================
+   6. MENU E RECEITAS (ARCHIVE)
+   ========================================================================== */
+.menu-title {
+    text-align: center;
+    font-size: 1.8rem;
+    letter-spacing: 4px; 
+    margin: 80px 0 50px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-title::before,
+.menu-title::after {
+    content: "❦";
+    color: #000000; 
+    font-size: 1.4rem;
+    font-weight: normal; 
+}
+
+.menu-title::before { margin-right: 20px; }
+.menu-title::after { margin-left: 20px; }
+
+.recipe-item {
+    margin-bottom: 40px;
+}
+
+.recipe-item h4 {
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+.recipe-item p {
+    font-style: italic;
+    font-size: 1rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* ==========================================================================
+   7. ÁUDIO E ELEMENTOS COMPARTILHADOS (DIVISÓRIA E CRÉDITOS)
+   ========================================================================== */
+.audio-player-section {
+    text-align: center;
+    margin: 60px 0; 
+}
+
+.audio-title {
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #000000;
+    margin-bottom: 20px;
+}
+
+audio {
+    width: 100%;
+    max-width: 400px; 
+    outline: none;
+    border-radius: 30px; 
+}
+
+/* A Linha Divisória elegante */
+.divider {
+    border: none;
+    border-top: 1px solid #000000; 
+    width: 80%; 
+    margin: 60px auto; 
+}
+
+/* Créditos centralizados e limpos */
+.credits-section {
+    text-align: center;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 80px;
+}
+
+/* ==========================================================================
+   8. PÁGINA ABOUT (ESPECÍFICOS)
+   ========================================================================== */
+.about-text p {
+    margin-bottom: 25px; /* Respiro extra entre os parágrafos do manifesto */
+}
+
+/* Container da foto no final do texto */
+.about-image {
+    width: 100%;
+    margin: 60px 0 40px; /* Cria um bom espaço entre o último parágrafo e a foto */
+    text-align: center;
+}
+
+/* Configuração da imagem do About para manter proporção e limite de largura */
+.about-image img {
+    width: 100%;
+    max-width: 800px; 
+    height: auto;
+    object-fit: cover;
+}
